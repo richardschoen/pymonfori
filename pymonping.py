@@ -1,6 +1,6 @@
 #!/QOpenSys/pkgs/bin/python3
 #------------------------------------------------
-# Script name: pyping.py
+# Script name: pymonping.py
 #
 # Description: 
 # This script pings a selected host using the CL based PING command.  
