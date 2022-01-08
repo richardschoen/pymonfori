@@ -11,5 +11,5 @@ THe goal would be that developers and system admins can monitor various services
 
 **pymonhttp.py** - Check web sites to make sure site is up or down. Can also scan reponse data for a selected value.
 
-
-
+# Feedback
+If you have an idea for a specific command, please open an issue with your request.
