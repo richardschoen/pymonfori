@@ -29,7 +29,7 @@ Example to check if google.com is online and scan for the word "clientWidth in t
 python3 pymonhttp.py  --host=www.google.com --echoresults=true  --secure=false  --scanvalue=clientWidth --scanresults=true
 ```
 
-### pymondirsize.py - This script processes a directory and all subdirectories to calculate size and option. The script can output just the total bytes or it can also list each individual file in a pipe (|) delimited list along with a running total to quickly identify when a large file has been encounterd because the total goes up rapidly.
+### pymondirsize.py - This script processes a directory and all subdirectories to calculate size. Optionally the script can output just the total bytes or it can also list each individual file in a pipe (|) delimited list along with a running total to quickly identify when a large file has been encounterd because the total goes up rapidly.
 
 Example to get the size of the /tmp directory. DO not list any file names, just the total bytes found
 ```
