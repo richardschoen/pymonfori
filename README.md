@@ -18,7 +18,7 @@ Example to ping DSN host 8.8.8.8 with only 3 packets
 python3 pymonping.py --host=8.8.8.8  --packets=3
 ```
 
-### pymonhttp.py - Check web sites to make sure site is up or down. Can also scan reponse data for a selected value.
+### pymonhttp.py - Check web sites to make sure site is up or down. Can also scan response data for a selected value.
 
 Example to check if google.com is online using ssl security. Same as https://www.google.com
 ```
