@@ -1,5 +1,5 @@
 # pymonfori
-Python Network Monitoring or Process Monitoring Scripts for IBM i 
+Python Network or Process Monitoring Scripts for IBM i 
 
 This repository will b eused to share various Python based system monitoring scripts for IBM i systems.
 
