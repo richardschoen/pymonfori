@@ -47,7 +47,7 @@ Example to crawl all of the IFS system and skip QSYS.LIB library objects
 ```
 python3 pydircrawltodb.py --dirname /  --outputtable tmp.dircrawlpf  --skipqsyslib True
 ```
-SQL sample to list objects from dircrawlpf in descending object size order to find large objects
+SQL sample to list objects from dircrawlpf in descending object size order to find large objects. Can also use table to generate reports
 ```
 select * from tmp.dircrawlpf order by ifssize desc
 ```
