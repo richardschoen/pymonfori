@@ -57,7 +57,7 @@ totalfilesize=0
 
 #Output messages to STDOUT for logging
 print("-------------------------------------------------------------------------------")
-print("Crawl directory to database table")
+print("Crawl directory to database table/outfile")
 print("Start of Main Processing - " + time.strftime("%H:%M:%S"))
 print("OS:" + platform)
 
@@ -99,7 +99,7 @@ def ltrim(strval):
 
 def insert_dircrawl(cursor,table,ifsfull,ifsfile,ifsprefix,ifsext,ifssize,ifstype,ifssymlnk):
     #----------------------------------------------------------
-    # Function: insert_dircrael
+    # Function: insert_dircrawl
     # Desc: Insert new record into directory crawler table
     # :return: Result value from query
     #----------------------------------------------------------
@@ -159,9 +159,6 @@ def execute_clcommand(cursor,clcommand):
     #----------------------------------------------------------
     # Function: execute_clcommand
     # Desc: Run IBM i CL Command
-    # :param self: Pointer to object instance. 
-    # :param field names: Each individual field name needed
-    # :param CL command: CL command to run
     # :return: Result value from query
     #----------------------------------------------------------
     try:
@@ -267,7 +264,7 @@ try: # Try to perform main logic
               # Insert record        
               rtnins=insert_dircrawl(cur1,outputtable,fullname,basename,os.path.basename(split1[0]),split1[1],file_size,"file",str(os.path.islink(fullname)))
 
-              # Make record insert succeeds
+              # Make sure record insert succeeds
               if (rtnins != True ):
                  raise Exception('Error inserting file/link record to  ' + outputtable + ' . Process cancelled.')          
 
@@ -297,7 +294,7 @@ try: # Try to perform main logic
               # If you need to do so, write dir_size instead of 0 on this record
               rtnins=insert_dircrawl(cur1,outputtable,fulldir,"","","",0,"dir",str(os.path.islink(fulldir)))
 
-              # Make record insert succeeds
+              # Make sure record insert succeeds
               if (rtnins != True ):
                  raise Exception('Error inserting directory record to  ' + outputtable + ' . Process cancelled.')          
 
