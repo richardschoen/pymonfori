@@ -29,6 +29,28 @@ Example to check if google.com is online and scan for the word "clientWidth in t
 python3 pymonhttp.py  --host=www.google.com --echoresults=true  --secure=false  --scanvalue=clientWidth --scanresults=true
 ```
 
+### pymondircrawltodb.py - This script will crawl a directory structure and output all the file info to a DB2 table so the info can be analyzed, filtered and even sorted by object size. This is very useful when you need to locate and determine which directories have the largest objects. This will also crawl a library in QSYS.LIB or all librarys to help determine a library size.
+
+Example to crawl all of the IBM i libraries in QSYS.LIB and list all objects including source and data files and members. 
+```
+python3 pydircrawltodb.py --dirname /QSYS.LIB  --outputtable tmp.dircrawlpf
+```
+Example to crawl library QGPL in QSYS.LIB and list all objects including source and data files and members. 
+```
+python3 pydircrawltodb.py --dirname /QSYS.LIB/QGPL.LIB  --outputtable tmp.dircrawlpf
+```
+Example to crawl all of the IFS system including QSYS.LIB 
+```
+python3 pydircrawltodb.py --dirname /  --outputtable tmp.dircrawlpf
+```
+Example to crawl all of the IFS system and skip QSYS.LIB library objects
+```
+python3 pydircrawltodb.py --dirname /  --outputtable tmp.dircrawlpf  --skipqsyslib True
+```
+SQL sample to list objects from dircrawlpf in descending object size order to find large objects
+```
+select * from tmp.dircrawlpf order by ifssize desc
+```
 ### pymondirsize.py - This script processes a directory and all subdirectories to calculate size. Optionally the script can output just the total bytes or it can also list each individual file in a pipe (|) delimited list along with a running total to quickly identify when a large file has been encounterd because the total goes up rapidly.
 
 Example to get the size of the /tmp directory. DO not list any file names, just the total bytes found
@@ -43,7 +65,6 @@ Example to get the size of the QGPL library using library name only. List file a
 ```
 python3 pymondirsize.py  --dirname=QGPL  --dirtype=library  --listfile=true
 ```
-
 
 # Feedback
 If you have an idea for a specific command, please open an issue with your request.
