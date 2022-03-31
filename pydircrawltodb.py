@@ -201,10 +201,6 @@ try: # Try to perform main logic
       followsymlinks = args.followsymlinks
       skipqsyslib = args.skipqsyslib
 
-      # Check to see if all required parms were passed
-      ##if len(sys.argv) < parmsexpected + 1:
-      ##  raise Exception(str(parmsexpected) + ' required parms - [Top level directory] [Output file] [Replace output file=True/False] [Follow symbolic links=True/False] [Delimiter=|,;] [Skip QSYS.LIB=True/False]. Process cancelled.')
-
       # Connect to DB2
       conn = db2.connect()
       conn.set_option({ db2.SQL_ATTR_TXN_ISOLATION:
