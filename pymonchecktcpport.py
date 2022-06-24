@@ -28,7 +28,7 @@ import traceback
 from pathlib import Path
 from datetime import date
 import datetime
-from configparser import ConfigParser 
+from configparser import ConfigParser
 import socket
 
 #------------------------------------------------
@@ -96,7 +96,7 @@ def DoesServiceExist(host,port):
     #-------------------------------------------------------
     # Function: DoesServiceExist
     # Desc: Check for TCP/IP active port
-    # ahttps://stackoverflow.com/questions/14110841/how-do-i-test-if-there-is-a-server-open-on-a-port-with-python
+    # https://stackoverflow.com/questions/14110841/how-do-i-test-if-there-is-a-server-open-on-a-port-with-python
     # :host: TCP/IP host name/ip
     # :port: TCP/IP port
     # :return: True-Service exists, False-Service does not exist
@@ -105,26 +105,41 @@ def DoesServiceExist(host,port):
    captive_dns_addr = ""
    host_addr = ""
 
+   # Check for non-existent domain host name. Some DNS servers will return an IP address
+   # if they have a service running, so this will return that IP address if so.
+   # We can then check that IP address against what we get when we do a 
+   # getbyhostname with the actual host name
    try:
+     # Get the ip address for invalid host. 
      captive_dns_addr=socket.gethostbyname("BlahThisDomaynDontExist22.com") 
    except:
-      pass
+      # Continue 
+      pass 
 
+   # Let's see if our selected host exists now
    try:
 
+    # Get IP address for our selected host
     host_addr = socket.gethostbyname(host)
+    print(f"TCP/IP host IP address: {host_addr}")
 
+    # If bogus host IP and actual IP match, our host name is probably invalid
+    # or possibly offline ?
     if (captive_dns_addr == host_addr):
        return False
   
+    # Now lets's check our actual host and port 
     s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     s.settimeout(1)
     s.connect((host,port))
     s.close()
 
    except:
+    # Something happened. Return false  
+    # Could add detailed exception messages here if desired.
     return False
- 
+
+   # All good, return true  
    return True
 
 #------------------------------------------------
