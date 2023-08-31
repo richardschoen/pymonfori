@@ -255,8 +255,8 @@ try: # Try to perform main logic
       # Convert args to variables
       dirname=args.dirname
       outputtable = args.outputtable   
-      followsymlinks = str2bool(args.followsymlinks)
-      skipqsyslib = str2bool(args.skipqsyslib)
+      followsymlinks = str2bool(str(args.followsymlinks))
+      skipqsyslib = str2bool(str(args.skipqsyslib))
       printsql = str2bool(str(args.printsql))
 
       # Connect to DB2
