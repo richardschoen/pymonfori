@@ -29,7 +29,9 @@ Example to check if google.com is online and scan for the word "clientWidth in t
 python3 pymonhttp.py  --host=www.google.com --echoresults=true  --secure=false  --scanvalue=clientWidth --scanresults=true
 ```
 
-### pymondircrawltodb.py - This script will crawl a directory structure and output all the file info to a DB2 table so the info can be analyzed, filtered and even sorted by object size. This is very useful when you need to locate and determine which directories have the largest objects. This will also crawl a library in QSYS.LIB or all librarys to help determine a library size.
+### pymondircrawltodb.py - This script will crawl a directory structure and output all the file info to a DB2 table so the info can be analyzed, filtered and even sorted by object size. This is very useful when you need to locate and determine which directories have the largest objects. This will also crawl a library in QSYS.LIB or all librarys to help determine a library size.   
+
+8/31/2023 - Added ability to capture file create, modify and access times from the IFS.   
 
 Example to crawl all of the IBM i libraries in QSYS.LIB and list all objects including source and data files and members. 
 ```
