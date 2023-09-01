@@ -428,7 +428,7 @@ try: # Try to perform main logic
               dircount = dircount + 1 
 
       # Close DB2 table
-      conn.close()
+      conn.close() 
 
       # Print file and dir counts
       print("Directory count: " + str(dircount))
