@@ -1,4 +1,13 @@
-
+#!/QOpenSys/pkgs/bin/python3
+#------------------------------------------------
+# Script name: pygetcurrentip.py
+#
+# Description: 
+# This script will get your current public IP address.
+#
+# Parameters
+# None
+#------------------------------------------------
 import requests
 import json
 
